@@ -50,9 +50,8 @@ section{
     display: flex;
     flex-flow: row wrap;
     height: 100px;
-    background-color: var(--dark);
-    justify-content: flex-end;
-    align-items: center;
+    justify-content: right;
+    align-items: end;
     position:fixed;
     margin-top: 10px;
     width: 100%;
@@ -60,13 +59,14 @@ section{
 .navbar .nav-underline{
     flex:70%;    
    /* border:1px solid green;*/
-    text-align:right;
+    text-align: left;
+    align-items: end;
     padding:20px;
     margin-top: 20px;
 }
 
 .navbar .nav-underline a{
-    color:#FF9100;
+    color:var(--redOrange);
     text-decoration: none;
     text-transform: initial;
     font-size:18px;
@@ -74,12 +74,12 @@ section{
 }
 
 .navbar .nav-underline  a:hover{
-
-    border-bottom: 1px solid#FF9100;
+    border-bottom: 1px solid var(--orange);
+    transition: 0.3s;
 }
 
-.about-title{
-    margin-top: 90px;
+/*HOME*/
+.about-title{  
     font-size: 13px;
     text-transform: uppercase;
     font-weight: bold;
@@ -123,40 +123,34 @@ section{
     margin: 18px 0;
 }
 
-/*QUEM-SOMOS*/
-.quem-somos .container{
+/*Passageiros*/
+.passageiros .container{
     display: flex;
     flex-direction: row;
-
     align-items: center;
 }
 
-.quem-somos h2{
-    text-align: center;
-    font-weight: bolder;
-    justify-content: center;
+.passageiros h2{
+    align-items: center;
 }
 
-.quem-somos .quem-somos-text{
-    width: 50%;
+.passageiros .passageiros-text{
+    padding-left: 12px 32px;
+    align-items: center;
+}
+
+.passageiros p{
+    margin: 0 12px;
     padding: 0 40px;
+    justify-content: center;
+    text-align: justify;
 }
 
-.quem-somos .quem-somos-img{
-  
-   justify-content: center;
-   
+.passageiros .passageiros-img{
+    width: 50%;
+    align-items: center;
 }
 
-.quem-somos .btn{
-    background-color: var(--darkblue);
-    color: var(--redOrange);
-}
-
-.quem-somos .btn:hover{
-    background-color: var(--redOrange);
-    columns: var(--darkblue);
-}
 /*CARDS-FEATURES*/
 .features h3{
     text-align: center;
@@ -174,11 +168,11 @@ section{
     justify-content: center;
 }
 .features .cards-item{
-    background-color: var(--darkblue);
+    background-color: var(--dark);
     margin: 15px;
     border-radius: 12px;
     text-align: center;
-    width: 350px;
+    width: 250px;
     transition: 0.3s;
 }
 
@@ -192,23 +186,69 @@ section{
 .features .cards-item .nome-feature{
     font-weight: 600;
     font-size: 20px;
+    text-align: center;
+    color: var(--white);
     margin-bottom: 15px;
     transition: 0.3s;
 }
 .features .cards-item .descricao-feature{
     font-size: 15px;
+    color: var(--redOrange);
     padding: 0 15px;
     transition: 0.3s;
 }
 
 .features .cards-item:hover{
-    background-color: var(--blue);
     margin-top: 5px;
     cursor: pointer;
 }
+.features .cards-item:hover .nome-feature, .features .cards-item:hover{
+    color: var(--redOrange);
+}
 
-.features .cards-item:hover .nome-feature, .features .cards-item:hover .descricao-feature{
+.features .cards-item:hover, .features .cards-item:hover .descricao-feature{
     color: var(--white);
+}
+
+/*QUEM-SOMOS*/
+.quem-somos .container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.quem-somos h2{
+    content: " ";
+    padding-top: 20px;
+    border-bottom: 3px solid var(--redOrange);
+    text-align: justify;
+    font-weight: bolder;
+    justify-content: center;
+}
+
+.quem-somos .quem-somos-text{
+    margin-top: 20px;
+    width: 70%;
+    padding: 0 40px;
+    text-align: justify;
+}
+
+.quem-somos .quem-somos-img{
+    padding-left: 12px 32px;
+    align-items: center;  
+    height: 75%;
+}
+
+.quem-somos .btn{
+    background-color: var(--dark);
+    color: var(--redOrange);
+}
+
+.quem-somos .btn:hover{
+    background-color: var(--redOrange);
+    color: var(--dark);
 }
 
 /*FOOTER*/
@@ -217,7 +257,7 @@ section{
     text-align: center; 
 }
 .footer i{
-    color: var(--darkblue);
+    color: var(--dark);
     background-color: var(--white);
     font-weight: 20px;
     padding: 18px;
@@ -226,13 +266,18 @@ section{
 }
 
 .footer i:hover{
-    background-color: var(--darkblue);
+    background-color: var(--dark);
     color: var(--white);
 }
 
 .footer p{
     margin-top: 10px;
     color: var(--white);
+}
+
+.footer a{
+    text-decoration: none;
+    color: var(--grey);
 }
 /*ContactoS*/
 .contacto-info{
@@ -244,7 +289,7 @@ section{
 .contacto-info .left-side{
     width: 50%;
     padding: 30px;  
-    background-color: var(--darkblue);
+    background-color: var(--dark);
     border-radius: 10px; 
     margin-right: 50px;
     height: fit-content;
@@ -264,7 +309,7 @@ section{
 
 .contacto-info .left-side p{
     font-size: 18px;
-    color: var(--orange);
+    color: var(--white);
 }
 
 .contacto-info .right-side{
@@ -300,7 +345,10 @@ section{
     resize: none;
 }
 
-
+.contacto-info .right-side .btn{
+    background-color: var(--dark);
+    color: var(--redOrange);
+}
 
 /*Responsividade*/
 @media(max-width:850px){
