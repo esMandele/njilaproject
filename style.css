@@ -46,38 +46,126 @@ section{
 }
 
 /*Navbar*/
-.navbar {
-    display: flex;
-    flex-flow: row wrap;
-    height: 100px;
-    justify-content: right;
-    align-items: end;
-    position:fixed;
-    margin-top: 10px;
-    width: 100%;
-}
-.navbar .nav-underline{
-    flex:70%;    
-   /* border:1px solid green;*/
-    text-align: left;
-    align-items: end;
-    padding:20px;
-    margin-top: 20px;
-}
-
-.navbar .nav-underline a{
-    color:var(--redOrange);
-    text-decoration: none;
-    text-transform: initial;
-    font-size:18px;
-    padding:20px 16px; 
-}
-
-.navbar .nav-underline  a:hover{
-    border-bottom: 1px solid var(--orange);
+header{
+    width:100%;
+    padding: 60px 4%;  
+    position: fixed; 
+    top: 0;
+    left: 0;
     transition: 0.3s;
 }
 
+.nav-item{
+    margin: 0 15px;
+}
+header ul{
+    list-style-type: none;
+}
+
+header ul li{
+    font-size: 18px;
+    text-transform: capitalize;
+    display: inline-block;
+    margin: 0 40px;
+}
+
+header ul li a{
+    color: var(--white);
+    text-decoration: none;
+}
+
+header ul li a:hover{
+    font-weight: bolder;
+    border-bottom: 2px solid var(--orange);
+    transition: 0.3s;
+}
+
+.navbar{
+    min-height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+}
+
+.nav-menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+}
+
+.nav-branding{
+    font-size: 2rem;
+    text-decoration: none;
+    color: #444;
+    font-weight: bold;
+}
+
+.nav-link{
+    transition: 0,5s ease;
+}
+
+.nav-link:hover{
+    color: #fff;
+}
+
+.hamburger{
+    display: none;
+    cursor: pointer;
+}
+
+.bar{
+    display: flex;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: var(--redOrange);
+}
+
+@media(max-width:768px) {
+    .hamburger{
+        display: block;
+    }
+
+    .hamburger.active .bar:nth-child(2){
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1){
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3){
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .nav-menu{
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        gap: 0;
+        flex-direction: column;
+        background-color: #444;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+    }
+
+    .nav-item{
+        margin: 16px 0;
+    }
+
+    .nav-menu.active{
+        left: 0;
+    }
+
+    .header ul li a{
+        color: var(--redOrange);
+    }
+}
 /*HOME*/
 .about-title{  
     font-size: 13px;
@@ -91,7 +179,7 @@ section{
 
 /*BANNER*/
 .banner{
-    /*background-image: url(/img/motorista.jpg);*/
+    background-image: url(motorista.jpg);
     background-repeat: no-repeat ;
     background-size: cover;
     background-attachment: fixed;
@@ -123,6 +211,31 @@ section{
     margin: 18px 0;
 }
 
+@media (max-width:860px) {
+    .banner{
+        justify-content: center;
+        height: 350px;
+    }
+
+    .banner .banner-text h2{
+        font-size: 22px;
+        font-weight: bolder;
+        text-align: left;
+    }
+
+    .banner .banner-text h5{
+        font-size: 28px;
+    }
+
+    .banner .banner-text button{
+        align-items: baseline;
+    }
+
+    .banner .banner-text p{
+        color: var(--white);
+       /* background-color:var(--white);*/
+    }
+}
 /*Passageiros*/
 .passageiros .container{
     display: flex;
@@ -151,6 +264,26 @@ section{
     align-items: center;
 }
 
+@media(max-width:768px){
+    .passageiros .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .passageiros h2{
+        align-items: center;
+        justify-content: center;
+    }
+
+    .passageiros .passageiros-img{
+        align-items: center;
+    }
+
+    .passageiros .passageiros-text{
+        font-weight: bold;
+    }
+}
 /*CARDS-FEATURES*/
 .features h3{
     text-align: center;
@@ -208,6 +341,20 @@ section{
 
 .features .cards-item:hover, .features .cards-item:hover .descricao-feature{
     color: var(--white);
+}
+
+@media (max-width:860px) {
+    .cards{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .features .cards-item:hover .nome-feature, .features .cards-item:hover{
+        color: var(--redOrange);
+        cursor: pointer;
+        transition: 0.3s ease;
+    }
 }
 
 /*QUEM-SOMOS*/
